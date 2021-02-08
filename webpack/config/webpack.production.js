@@ -1,8 +1,13 @@
 const { merge } = require('webpack-merge');
 const webpackCommon = require('./webpack.common');
+const { html } = require('../modules');
 
-module.exports = (buildFolder) =>
-  merge(webpackCommon(buildFolder), {
-    devtool: false,
-    mode: 'production',
-  });
+module.exports = (options) =>
+  merge(
+    webpackCommon(options),
+    {
+      devtool: false,
+      mode: 'production',
+    },
+    html.injectHtml(false),
+  );

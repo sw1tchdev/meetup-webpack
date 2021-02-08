@@ -1,8 +1,3 @@
-const path = require('path');
-
-// constants
-const BUILD_FOLDER = path.resolve(__dirname, 'dist');
-
 function getWebpackConfigByEnv(env) {
   switch (env) {
     case 'development':
@@ -16,4 +11,4 @@ function getWebpackConfigByEnv(env) {
 
 const createConfig = getWebpackConfigByEnv(process.env.NODE_ENV);
 
-module.exports = createConfig(BUILD_FOLDER);
+module.exports = createConfig();

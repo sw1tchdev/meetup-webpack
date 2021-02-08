@@ -1,4 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
@@ -17,6 +18,12 @@ const optimization = () => ({
   },
 });
 
+const optimizationCSS = () => ({
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
+});
+
 const progress = () => ({
   plugins: [new webpack.ProgressPlugin({ percentBy: 'entries' })],
 });
@@ -29,4 +36,5 @@ module.exports = {
   optimization,
   progress,
   cleanDist,
+  optimizationCSS,
 };
