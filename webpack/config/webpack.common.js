@@ -11,8 +11,12 @@ module.exports = () =>
         filename: '[name].bundle.js',
         path: path.resolve(PROJECT_DIR, 'dist'),
       },
+      resolve: {
+        extensions: ['.js', '.json', '.ts'],
+      },
     },
     javascript.loadJS(),
+    javascript.typeChecking(),
     html.injectHtml(),
     css.loadSCSS(),
     utils.optimizationCSS(),

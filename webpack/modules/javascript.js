@@ -1,3 +1,5 @@
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 const loadJS = () => ({
   module: {
     rules: [
@@ -8,7 +10,7 @@ const loadJS = () => ({
         },
       },
       {
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         loader: 'babel-loader',
         exclude: (file) => /node_modules/.test(file) && !/@babel[/|\\]runtime/.test(file),
         options: {
@@ -22,6 +24,7 @@ const loadJS = () => ({
                 corejs: '3.8',
               },
             ],
+            '@babel/preset-typescript',
           ],
           plugins: [
             [
@@ -37,6 +40,11 @@ const loadJS = () => ({
   },
 });
 
+const typeChecking = () => ({
+  plugins: [new ForkTsCheckerWebpackPlugin()],
+});
+
 module.exports = {
   loadJS,
+  typeChecking,
 };
