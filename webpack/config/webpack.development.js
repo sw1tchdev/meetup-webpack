@@ -13,9 +13,8 @@ module.exports = (options) =>
       publicPath: '/',
       contentBase: path.join(PROJECT_DIR, 'dist'),
       watchContentBase: true,
-      https: true,
       disableHostCheck: true,
       liveReload: true,
-      injectClient: (compilerConfig) => compilerConfig.target === 'browserslist',
+      injectClient: (compilerConfig) => compilerConfig.target === 'browserslist', // dev-server and for sw
     },
   });

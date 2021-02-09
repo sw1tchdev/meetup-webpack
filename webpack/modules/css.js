@@ -4,8 +4,16 @@ const loadSCSS = () => ({
   module: {
     rules: [
       {
-        test: /\.scss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 }, // postcss-loader
+          },
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
     ],
   },

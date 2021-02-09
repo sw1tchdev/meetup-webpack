@@ -6,6 +6,8 @@ const injectHtml = () => ({
   plugins: [
     new HTMLWebpackPlugin({
       template: path.resolve(PROJECT_DIR, 'public/index.html'),
+      favicon: path.resolve(PROJECT_DIR, 'public/favicon.ico'),
+      title: 'Meetup Webpack',
       filename: 'index.html',
       cache: false,
       minify: {

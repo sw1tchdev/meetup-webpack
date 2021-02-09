@@ -26,11 +26,8 @@
   },
   "homepage": "https://github.com/sw1tchdev/meetup-webpack#readme",
   "browserslist": [
-    ">0.2%",
-    "last 2 versions",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+    "defaults",
+    "last 2 versions"
   ],
   "dependencies": {
     "@babel/runtime": "7.12.5",

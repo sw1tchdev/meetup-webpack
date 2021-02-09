@@ -1,7 +1,7 @@
 import moduleA from './modules/moduleA';
 import './app.scss';
 
-const testPromise = async () => Promise.resolve(1231);
+const testPromise = async () => Promise.resolve(12311);
 
 async function main() {
   const result = await testPromise();
