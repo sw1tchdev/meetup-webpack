@@ -18,6 +18,14 @@ const optimization = () => ({
   },
 });
 
+const splitChunks = () => ({
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+});
+
 const optimizationCSS = () => ({
   optimization: {
     minimizer: [new CssMinimizerPlugin()],
@@ -37,4 +45,5 @@ module.exports = {
   progress,
   cleanDist,
   optimizationCSS,
+  splitChunks,
 };

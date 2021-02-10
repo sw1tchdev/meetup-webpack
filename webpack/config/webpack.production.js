@@ -1,13 +1,15 @@
 const { merge } = require('webpack-merge');
 const webpackCommon = require('./webpack.common');
-const { html } = require('../modules');
+const { utils, javascript } = require('../modules');
 
-module.exports = (options) =>
+module.exports = () =>
   merge(
-    webpackCommon(options),
+    webpackCommon(),
     {
       devtool: false,
       mode: 'production',
     },
-    html.injectHtml(false),
+    javascript.enableEslintChecker(),
+    utils.optimizationCSS(),
+    utils.optimization(),
   );

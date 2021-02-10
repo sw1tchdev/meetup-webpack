@@ -3,6 +3,7 @@ const javascript = require('./javascript');
 const html = require('./html');
 const copy = require('./copy');
 const css = require('./css');
+const assets = require('./assets');
 
 module.exports = {
   utils,
@@ -10,4 +11,5 @@ module.exports = {
   html,
   copy,
   css,
+  assets,
 };

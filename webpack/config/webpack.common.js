@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
 const { PROJECT_DIR } = require('../paths');
-const { utils, javascript, html, css } = require('../modules');
+const { utils, javascript, html, css, assets } = require('../modules');
 
 module.exports = () =>
   merge(
@@ -19,7 +19,9 @@ module.exports = () =>
     javascript.typeChecking(),
     html.injectHtml(),
     css.loadSCSS(),
-    utils.optimizationCSS(),
+    assets.loadResources(),
+    assets.loadInline(),
     utils.cleanDist(),
     utils.progress(),
+    utils.splitChunks(),
   );

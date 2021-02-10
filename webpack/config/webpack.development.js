@@ -3,8 +3,8 @@ const path = require('path');
 const webpackCommon = require('./webpack.common');
 const { PROJECT_DIR } = require('../paths');
 
-module.exports = (options) =>
-  merge(webpackCommon(options), {
+module.exports = () =>
+  merge(webpackCommon(), {
     devtool: 'source-map',
     mode: 'development',
     devServer: {
@@ -15,6 +15,6 @@ module.exports = (options) =>
       watchContentBase: true,
       disableHostCheck: true,
       liveReload: true,
-      injectClient: (compilerConfig) => compilerConfig.target === 'browserslist', // dev-server and for sw
+      injectClient: true,
     },
   });

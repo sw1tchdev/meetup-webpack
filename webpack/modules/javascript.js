@@ -1,4 +1,6 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+// const { dependencies } = require('../../package.json');
 
 const loadJS = () => ({
   module: {
@@ -12,15 +14,21 @@ const loadJS = () => ({
       {
         test: /\.(js|ts)$/,
         loader: 'babel-loader',
-        exclude: (file) => /node_modules/.test(file) && !/@babel[/|\\]runtime/.test(file),
+        exclude: /node_modules/,
+        // exclude: file => {
+        //   const filteredDependencies = Object.keys(dependencies)
+        //     .filter((value) => !value.includes('core-js'))
+        //     .map((value) => `node_modules/${value}`);
+        //   return /node_modules/.test(file) && !filteredDependencies.some((value) => file.includes(value));
+        // },
         options: {
           babelrc: false,
-          sourceType: 'unambiguous',
+          // sourceType: 'unambiguous',
           presets: [
             [
               '@babel/preset-env',
               {
-                useBuiltIns: 'usage',
+                useBuiltIns: 'entry',
                 corejs: '3.8',
               },
             ],
@@ -44,7 +52,16 @@ const typeChecking = () => ({
   plugins: [new ForkTsCheckerWebpackPlugin()],
 });
 
+const enableEslintChecker = (options = {}) => ({
+  plugins: [
+    new ESLintPlugin({
+      ...options,
+    }),
+  ],
+});
+
 module.exports = {
   loadJS,
   typeChecking,
+  enableEslintChecker,
 };
