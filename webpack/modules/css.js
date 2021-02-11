@@ -11,7 +11,14 @@ const loadSCSS = () => ({
             loader: 'css-loader',
             options: { importLoaders: 1 }, // postcss-loader
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: ['autoprefixer'],
+              },
+            },
+          },
           'sass-loader',
         ],
       },
