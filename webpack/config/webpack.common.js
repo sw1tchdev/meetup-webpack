@@ -14,6 +14,9 @@ module.exports = () =>
       resolve: {
         extensions: ['.js', '.json', '.ts'],
       },
+      cache: {
+        type: 'filesystem',
+      },
     },
     javascript.loadJS(),
     javascript.typeChecking(),

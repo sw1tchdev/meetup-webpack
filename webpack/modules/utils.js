@@ -1,6 +1,7 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
 
 const optimization = () => ({
@@ -40,10 +41,20 @@ const cleanDist = () => ({
   plugins: [new CleanWebpackPlugin()],
 });
 
+const analyzer = () => ({
+  plugins: [
+    new BundleAnalyzerPlugin({
+      openAnalyzer: true,
+      analyzerPort: 'auto',
+    }),
+  ],
+});
+
 module.exports = {
   optimization,
   progress,
   cleanDist,
   optimizationCSS,
   splitChunks,
+  analyzer,
 };

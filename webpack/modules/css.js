@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 
 const loadSCSS = () => ({
   module: {
@@ -32,6 +33,15 @@ const loadSCSS = () => ({
   ],
 });
 
+const enableStyleLintChecker = (options = {}) => ({
+  plugins: [
+    new StylelintWebpackPlugin({
+      ...options,
+    }),
+  ],
+});
+
 module.exports = {
   loadSCSS,
+  enableStyleLintChecker,
 };
