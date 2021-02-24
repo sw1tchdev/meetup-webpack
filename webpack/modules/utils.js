@@ -34,7 +34,7 @@ const optimizationCSS = () => ({
 });
 
 const progress = () => ({
-  plugins: [new webpack.ProgressPlugin({ percentBy: 'entries' })],
+  plugins: [new webpack.ProgressPlugin()],
 });
 
 const cleanDist = () => ({
