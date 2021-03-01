@@ -22,7 +22,7 @@ const loadJS = () => ({
         //   return /node_modules/.test(file) && !filteredDependencies.some((value) => file.includes(value));
         // },
         options: {
-          babelrc: false,
+          babelrc: false, // configFile: false,
           // sourceType: 'unambiguous',
           presets: [
             [
