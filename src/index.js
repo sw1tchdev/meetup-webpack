@@ -15,6 +15,10 @@ async function main() {
   const result = await testPromise();
   const resultFromModule = await moduleA();
   const resultFromModuleB = await extModuleB.get();
+  const container = document.querySelector('div.container');
+  if (!container) {
+    return;
+  }
 
   console.log(extModuleB.test(), test, asdB, asd);
   console.log(result, resultFromModule, resultFromModuleB);
@@ -25,7 +29,7 @@ async function main() {
   const logoSvg = new Image(100);
   logoSvg.src = logoSvgData;
 
-  document.body.append(logoPng, logoSvg);
+  container.append(logoPng, logoSvg);
 }
 
 main().then().catch();
