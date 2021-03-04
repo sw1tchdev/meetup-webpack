@@ -13,7 +13,7 @@ const loadInline = () => ({
   module: {
     rules: [
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
         type: 'asset/inline',
       },
     ],
