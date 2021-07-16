@@ -13,6 +13,6 @@ module.exports = () =>
     css.enableStyleLintChecker({
       files: 'src/**/*.(s(c|a)ss|css)',
     }),
-    utils.optimizationCSS(),
+    css.minimizeCSS(),
     utils.optimization(),
   );

@@ -10,11 +10,15 @@ module.exports = () =>
     devServer: {
       host: '0.0.0.0',
       port: 9000,
-      publicPath: '/',
-      contentBase: path.join(PROJECT_DIR, 'dist'),
-      watchContentBase: true,
-      disableHostCheck: true,
+      static: {
+        directory: path.join(PROJECT_DIR, 'dist'),
+        publicPath: '/',
+      },
+      firewall: false,
+      hot: false,
       liveReload: true,
-      injectClient: true,
+      client: {
+        needClientEntry: true,
+      },
     },
   });
