@@ -8,6 +8,7 @@ module.exports = () =>
     {
       entry: path.resolve(PROJECT_DIR, 'src/index.js'),
       output: {
+        assetModuleFilename: 'assets/[name].[hash][ext]',
         filename: '[name].[contenthash].bundle.js',
         path: path.resolve(PROJECT_DIR, 'dist'),
       },

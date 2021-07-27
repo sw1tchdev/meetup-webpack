@@ -2,11 +2,12 @@ import 'core-js';
 import 'regenerator-runtime/runtime';
 
 import moduleA from './modules/moduleA';
-import ExtendedModuleB, { test, asd as asdB } from './modules/moduleB.ts';
-import { asd } from './modules/moduleC.ts';
+import ExtendedModuleB, { test, asd as asdB } from './modules/moduleB';
+import { asd } from './modules/moduleC';
 import './app.scss';
 import logoUrl from './assets/logo-on-dark-bg.png';
 import logoSvgData from './assets/logo-on-dark-bg.svg';
+import delay from './helpers/delay';
 
 const testPromise = async () => Promise.resolve(12311);
 
@@ -30,6 +31,10 @@ async function main() {
   logoSvg.src = logoSvgData;
 
   container.append(logoPng, logoSvg);
+
+  await delay(1000);
+  const moduleD = (await import('./modules/moduleD')).default;
+  console.log(moduleD);
 }
 
 main().then().catch();

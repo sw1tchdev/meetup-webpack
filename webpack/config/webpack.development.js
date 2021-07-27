@@ -11,14 +11,12 @@ module.exports = () =>
       host: '0.0.0.0',
       port: 9000,
       static: {
-        directory: path.join(PROJECT_DIR, 'dist'),
+        directory: path.join(PROJECT_DIR, 'public'),
         publicPath: '/',
       },
-      firewall: false,
+      allowedHosts: 'all',
       hot: false,
       liveReload: true,
-      client: {
-        needClientEntry: true,
-      },
+      client: true,
     },
   });
