@@ -8,7 +8,7 @@ module.exports = () =>
     {
       entry: path.resolve(PROJECT_DIR, 'src/index.js'),
       output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[contenthash].bundle.js',
         path: path.resolve(PROJECT_DIR, 'dist'),
       },
       resolve: {
@@ -27,4 +27,16 @@ module.exports = () =>
     utils.cleanDist(),
     utils.progress(),
     utils.splitChunks(),
+    // {
+    //   plugins: [
+    //     new (class MyCustomPlugin {
+    //       // eslint-disable-next-line class-methods-use-this
+    //       apply(compiler) {
+    //         compiler.hooks.done.tap('MyCustomPlugin', (stats) => {
+    //           debugger;
+    //         });
+    //       }
+    //     })(),
+    //   ],
+    // },
   );

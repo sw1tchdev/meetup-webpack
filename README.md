@@ -5,6 +5,7 @@ Demonstration of webpack config including following features:
 * Sass
 * Assets
 * Typescript
+* [React + HMR + Aliases](https://github.com/sw1tchdev/meetup-webpack-react)
 * Working with Service Workers
 * Production build
 ## Install
